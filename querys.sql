@@ -38,4 +38,10 @@ delete from campus where id_campus = 4 ;
 
 --cria um novo campus 										imagem_campus só sera inserida quando as páginas estiverem prontas
 insert into campus(nome_campus,telefone_campus,email_campus,descricao_campus,endereco,universidade,site_campus) values('UMBRELA','(47) 4002-8922','umbrela.contato@outlook.com','O campus é bonito','2','2','umbrela.edu.com.br');	     
-  
+
+--Selecionar os campus que sao da mesma cidade
+select * from campus where endereco in (select id_cidade from cidade where nome_cidade = 'Joinville');
+
+--Selecionar os campus que são da mesma universidade
+select * from campus where universidade in (select id_uni from universidade  where nome_universidade = 'IFC');
+
