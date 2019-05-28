@@ -269,11 +269,6 @@ CREATE TABLE IF NOT EXISTS `favoritar` (
 -- Estrutura da tabela `teste`
 --
 
-DROP TABLE IF EXISTS `teste`;
-CREATE TABLE IF NOT EXISTS `teste` (
-  `id_campus` int(11) NOT NULL,
-  PRIMARY KEY (`id_campus`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
