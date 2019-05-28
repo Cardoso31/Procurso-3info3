@@ -45,3 +45,15 @@ select * from campus where endereco in (select id_cidade from cidade where nome_
 --Selecionar os campus que são da mesma universidade
 select * from campus where universidade in (select id_uni from universidade  where nome_universidade = 'IFC');
 
+--Seleciona os Campus que oferecem um determinado curso
+select * from campus where id_campus in (select campus from cursos_campus where curso in (select id_curso from curso where nome_curso = 'Administração'));
+											  
+--------------->CIDADE<-----------
+
+--Seleciona todas as cidades cadastradas
+select * from cidade;
+
+--Seleciona uma cidade pelo nome
+select * from cidade where nome_cidade = 'Araquari';	
+											  
+--------------->CIDADE<-----------											  
