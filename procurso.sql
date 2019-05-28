@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: 27-Maio-2019 às 02:39
--- Versão do servidor: 5.7.24
--- versão do PHP: 7.2.14
+-- Host: localhost:3306
+-- Generation Time: 28-Maio-2019 às 16:47
+-- Versão do servidor: 5.7.24-0ubuntu0.18.04.1
+-- PHP Version: 7.2.13-1+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,9 +26,8 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `campus`
 --
 
-DROP TABLE IF EXISTS `campus`;
-CREATE TABLE IF NOT EXISTS `campus` (
-  `id_campus` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `campus` (
+  `id_campus` int(11) NOT NULL,
   `telefone_campus` varchar(30) DEFAULT NULL,
   `email_campus` varchar(80) DEFAULT NULL,
   `descricao_campus` text NOT NULL,
@@ -38,11 +35,8 @@ CREATE TABLE IF NOT EXISTS `campus` (
   `imagem_campus` blob,
   `endereco` int(11) NOT NULL,
   `universidade` int(11) NOT NULL,
-  `site_campus` varchar(120) DEFAULT NULL,
-  PRIMARY KEY (`id_campus`),
-  KEY `universidade` (`universidade`),
-  KEY `endereco` (`endereco`)
-) ENGINE=MyISAM AUTO_INCREMENT=1030 DEFAULT CHARSET=utf8;
+  `site_campus` varchar(120) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `campus`
@@ -84,12 +78,10 @@ INSERT INTO `campus` (`id_campus`, `telefone_campus`, `email_campus`, `descricao
 -- Estrutura da tabela `cidade`
 --
 
-DROP TABLE IF EXISTS `cidade`;
-CREATE TABLE IF NOT EXISTS `cidade` (
-  `id_cidade` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_cidade` varchar(80) NOT NULL,
-  PRIMARY KEY (`id_cidade`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+CREATE TABLE `cidade` (
+  `id_cidade` int(11) NOT NULL,
+  `nome_cidade` varchar(80) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `cidade`
@@ -108,29 +100,13 @@ INSERT INTO `cidade` (`id_cidade`, `nome_cidade`) VALUES
 -- Estrutura da tabela `comentario`
 --
 
-DROP TABLE IF EXISTS `comentario`;
-CREATE TABLE IF NOT EXISTS `comentario` (
+CREATE TABLE `comentario` (
   `usuario` int(11) NOT NULL,
   `curso` int(11) NOT NULL,
-  `id_comentario` int(11) NOT NULL AUTO_INCREMENT,
+  `id_comentario` int(11) NOT NULL,
   `comentario_descricao` varchar(200) NOT NULL,
-  `data_hora` varchar(80) NOT NULL,
-  PRIMARY KEY (`id_comentario`),
-  KEY `usuario` (`usuario`),
-  KEY `curso` (`curso`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `comentario`
---
-
-INSERT INTO `comentario` (`usuario`, `curso`, `id_comentario`, `comentario_descricao`, `data_hora`) VALUES
-(1, 1, 1, 'Olha essa descrição', '12/05/2017-16:52'),
-(2, 2, 2, 'Olha essa descrição', '12/05/2017-16:52'),
-(3, 3, 3, 'Olha essa descrição', '12/05/2017-16:52'),
-(4, 4, 4, 'Olha essa descrição', '12/05/2017-16:52'),
-(5, 5, 5, 'Olha essa descrição', '12/05/2017-16:52'),
-(6, 6, 6, 'Olha essa descrição', '12/05/2017-16:52');
+  `data_hora` varchar(80) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -138,9 +114,8 @@ INSERT INTO `comentario` (`usuario`, `curso`, `id_comentario`, `comentario_descr
 -- Estrutura da tabela `curso`
 --
 
-DROP TABLE IF EXISTS `curso`;
-CREATE TABLE IF NOT EXISTS `curso` (
-  `id_curso` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `curso` (
+  `id_curso` int(11) NOT NULL,
   `nome_curso` varchar(80) NOT NULL,
   `descricao_curso` varchar(300) NOT NULL,
   `carga_horaria` varchar(30) DEFAULT NULL,
@@ -148,9 +123,8 @@ CREATE TABLE IF NOT EXISTS `curso` (
   `forma_ingresso` varchar(40) NOT NULL,
   `turno` varchar(40) NOT NULL,
   `modalidade` varchar(40) NOT NULL,
-  `grau` varchar(30) NOT NULL,
-  PRIMARY KEY (`id_curso`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+  `grau` varchar(30) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `curso`
@@ -208,12 +182,9 @@ INSERT INTO `curso` (`id_curso`, `nome_curso`, `descricao_curso`, `carga_horaria
 -- Estrutura da tabela `cursos_campus`
 --
 
-DROP TABLE IF EXISTS `cursos_campus`;
-CREATE TABLE IF NOT EXISTS `cursos_campus` (
+CREATE TABLE `cursos_campus` (
   `curso` int(11) NOT NULL,
-  `campus` int(11) NOT NULL,
-  KEY `curso` (`curso`),
-  KEY `campus` (`campus`)
+  `campus` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -234,17 +205,14 @@ INSERT INTO `cursos_campus` (`curso`, `campus`) VALUES
 -- Estrutura da tabela `endereco`
 --
 
-DROP TABLE IF EXISTS `endereco`;
-CREATE TABLE IF NOT EXISTS `endereco` (
-  `id_end` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `endereco` (
+  `id_end` int(11) NOT NULL,
   `logradoruo` varchar(120) NOT NULL,
   `cep` varchar(15) NOT NULL,
   `numero` int(11) NOT NULL,
   `bairro` varchar(80) NOT NULL,
   `complemento` varchar(80) DEFAULT NULL,
-  `cidade` int(11) NOT NULL,
-  PRIMARY KEY (`id_end`),
-  KEY `cidade` (`cidade`)
+  `cidade` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -253,14 +221,10 @@ CREATE TABLE IF NOT EXISTS `endereco` (
 -- Estrutura da tabela `favoritar`
 --
 
-DROP TABLE IF EXISTS `favoritar`;
-CREATE TABLE IF NOT EXISTS `favoritar` (
+CREATE TABLE `favoritar` (
   `usuario` int(11) NOT NULL,
   `curso` int(11) NOT NULL,
-  `id_favorito` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_favorito`),
-  KEY `usuario` (`usuario`),
-  KEY `curso` (`curso`)
+  `id_favorito` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -269,6 +233,9 @@ CREATE TABLE IF NOT EXISTS `favoritar` (
 -- Estrutura da tabela `teste`
 --
 
+CREATE TABLE `teste` (
+  `id_campus` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -276,17 +243,15 @@ CREATE TABLE IF NOT EXISTS `favoritar` (
 -- Estrutura da tabela `universidade`
 --
 
-DROP TABLE IF EXISTS `universidade`;
-CREATE TABLE IF NOT EXISTS `universidade` (
-  `id_uni` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `universidade` (
+  `id_uni` int(11) NOT NULL,
   `imagem_uni` blob,
   `descricao_universidade` varchar(300) NOT NULL,
   `email` varchar(80) DEFAULT NULL,
   `nome_universidade` varchar(80) NOT NULL,
   `telefone_universidade` varchar(13) DEFAULT NULL,
-  `site_universidade` varchar(120) NOT NULL,
-  PRIMARY KEY (`id_uni`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `site_universidade` varchar(120) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `universidade`
@@ -304,19 +269,16 @@ INSERT INTO `universidade` (`id_uni`, `imagem_uni`, `descricao_universidade`, `e
 -- Estrutura da tabela `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
   `sobrenome` varchar(30) DEFAULT NULL,
   `nome_usuario` varchar(80) NOT NULL,
   `email_usuario` varchar(80) NOT NULL,
   `data_nascimento` varchar(30) NOT NULL,
   `senha` varchar(25) NOT NULL,
   `tipo_usuario` int(11) NOT NULL,
-  `imagem_perfil` blob,
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `email_usuario` (`email_usuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=503 DEFAULT CHARSET=utf8;
+  `imagem_perfil` blob
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -624,8 +586,124 @@ INSERT INTO `usuario` (`id_usuario`, `sobrenome`, `nome_usuario`, `email_usuario
 (299, 'Bespoormsed', 'Correia', 'BrunaAraujoCorreia@fleckens.hu', '2/15/1938', 'iMah6Iengur', 0, 0x6e6f5f66696c65),
 (300, 'Ouste1977', 'Cunha', 'SofiaCorreiaCunha@fleckens.hu', '10/15/1977', 'IeSi6airei', 0, 0x6e6f5f66696c65),
 (502, 'Cardoso', 'Mateus', 'mateuscardoso3112@gmail.com', '31/12/2001', 'cardoso31', 3, NULL);
-COMMIT;
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `campus`
+--
+ALTER TABLE `campus`
+  ADD PRIMARY KEY (`id_campus`),
+  ADD KEY `universidade` (`universidade`),
+  ADD KEY `endereco` (`endereco`);
+
+--
+-- Indexes for table `cidade`
+--
+ALTER TABLE `cidade`
+  ADD PRIMARY KEY (`id_cidade`);
+
+--
+-- Indexes for table `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `usuario` (`usuario`),
+  ADD KEY `curso` (`curso`);
+
+--
+-- Indexes for table `curso`
+--
+ALTER TABLE `curso`
+  ADD PRIMARY KEY (`id_curso`);
+
+--
+-- Indexes for table `cursos_campus`
+--
+ALTER TABLE `cursos_campus`
+  ADD KEY `curso` (`curso`),
+  ADD KEY `campus` (`campus`);
+
+--
+-- Indexes for table `endereco`
+--
+ALTER TABLE `endereco`
+  ADD PRIMARY KEY (`id_end`),
+  ADD KEY `cidade` (`cidade`);
+
+--
+-- Indexes for table `favoritar`
+--
+ALTER TABLE `favoritar`
+  ADD PRIMARY KEY (`id_favorito`),
+  ADD KEY `usuario` (`usuario`),
+  ADD KEY `curso` (`curso`);
+
+--
+-- Indexes for table `teste`
+--
+ALTER TABLE `teste`
+  ADD PRIMARY KEY (`id_campus`);
+
+--
+-- Indexes for table `universidade`
+--
+ALTER TABLE `universidade`
+  ADD PRIMARY KEY (`id_uni`);
+
+--
+-- Indexes for table `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD UNIQUE KEY `email_usuario` (`email_usuario`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `campus`
+--
+ALTER TABLE `campus`
+  MODIFY `id_campus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1030;
+--
+-- AUTO_INCREMENT for table `cidade`
+--
+ALTER TABLE `cidade`
+  MODIFY `id_cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `curso`
+--
+ALTER TABLE `curso`
+  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+--
+-- AUTO_INCREMENT for table `endereco`
+--
+ALTER TABLE `endereco`
+  MODIFY `id_end` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `favoritar`
+--
+ALTER TABLE `favoritar`
+  MODIFY `id_favorito` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `universidade`
+--
+ALTER TABLE `universidade`
+  MODIFY `id_uni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=503;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
