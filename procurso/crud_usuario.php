@@ -10,7 +10,7 @@ if(isset($_GET['acao'])){
 ?>
 
 <?php			
-
+echo 'oi';
 				break;
 			
 		case 'signin':
@@ -18,6 +18,7 @@ if(isset($_GET['acao'])){
 
 
 <?php
+echo 'tchau';
 				break;
 		}
 
