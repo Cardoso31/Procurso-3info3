@@ -1,0 +1,302 @@
+
+    .hidden.menu {
+      display: none;
+    }
+
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+
+.barra{
+	background-color: #eee !important;
+}
+
+.barra_lateral1{
+	width: 15%;
+	height: 10em;
+	float: left;
+}
+
+.barra_superior1{
+	float: left;
+	width: 100%;
+	height: 2em ;
+}
+
+.cor1{
+	background-color: #25a2c3  !important;
+}
+
+.cor2{
+	background-color: #f6755e !important;
+}
+
+.coluna_login_dir{
+	width: 30%;
+	float: left;
+	height: 15em;
+}
+
+.coluna_login{
+	width: 40%;
+	float: left;
+	height: 25em;
+}
+
+.barra_sup_login{
+	width: 40%;
+	float: left;
+	height: 4em;
+}
+
+.letra1{
+	font-family: sans-serif ;
+	float: left;
+	color: #f6755e;
+	font-size: 
+}
+
+.barra_cima_login{
+	height: 3em !important;
+	float: left !important;
+	width: 100% !important; 
+	margin-top: 3em !important;
+
+}
+
+.coluna_cad_dir{
+	width: 25%;
+	float: left;
+	height: 15em;
+}
+
+.coluna_cad{
+	width: 50%;
+	float: left;
+	height: 55em;
+	background-color: #fff;
+}
+
+.coluna_cad2{
+	width: 90%;
+	float: left;
+	height: 55em;
+  margin-top: 2em;
+  margin-left: 5%;
+}
+
+.dentro_login{
+  margin-left: 5% !important;
+  float: left;
+}
+
+.coluna_lado_usu{
+  float: left;
+  height: 10em;
+  background-color: #eee;
+  width: 6em;
+}
+
+.menuzinho{
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.075) !important;
+}
+
+.espaco_perfil{
+  width: 35%;
+  height: 35em;
+  float: left;
+  margin-left: 5%;
+  margin-top: 3em;
+}
+
+.espaco_favoritos{
+  width: 55%;
+  height: 35em;
+  float: right;
+  margin-right: 5%;
+    margin-top: 3em;
+}
+
+.img1{
+  height: 150px;
+}
+
+#img1{
+  height: 150px;
+}
+
+#letra{
+  color: black !important;
+}
+
+.linha_menu{
+  width: 100%;
+  height: 7em;
+  background-color: #eee;
+  float: left;
+}
+
+.coluna1_menu{
+  float: left;
+  width: 35%;
+  height: 7em;
+  background-color: #aaa;
+}
+
+.coluna2_menu{
+  float: left;
+  width: 30%;
+  height: 7em;
+  background-color: #bbb;
+}
+
+.coluna3_menu{
+  float: left;
+  width: 35%;
+  height: 7em;
+  background-color: #ccc;
+}
+
+.menu_edit{
+  height: 6em !important
+
+}
+.margin-left-5{
+  margin:1%;
+}
+.incorreto{
+  color:red;
+}
+
+
+
+/*
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+.menu{
+  width: 770px;
+  height: 66px;
+  margin: 20px auto;
+  position: relative;
+}
+.menu ul{
+  list-style: none;
+}
+.menu li{
+  float: left;
+}
+.menu li a{
+  display: block;
+  padding: 10px 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  border-bottom: 1px solid #000;
+  margin: 10px 10px 0 0;
+  width:100px;
+}
+/* Add space between the third and fourth "li" to add the logo */
+/*.menu li:nth-child(3){
+  margin-right: 120px;
+}
+
+/* Remove the last margin-right */
+/*
+.menu li:nth-child(6) a{
+  margin-right: 0;
+}
+.menu li:nth-child(1n+4) a{
+  text-align: right;
+}
+.logo{
+  width: 100px;
+  height: 64px;
+  background-image: url(https://www.todoespacoonline.com/w/wp-content/uploads/2014/07/minha-logo-723x461.png);
+  background-size: 100px 64px;
+  position: absolute;
+  left: 335px;
+}
+*/
+
+
